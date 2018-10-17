@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Get weather forecast</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous"
+          th:href="@{/webjars/bootstrap/4.1.3/css/bootstrap.min.css}">
+    <script src="/webjars/jquery/3.0.0/jquery.min.js"></script>
+
+</head>
+<body>
+<!--/*@thymesVar id="weatherdata" type="com.example.api.v1.domain.WeatherData"*/-->
+<div class="container-fluid" style="margin-top: 20px">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <form th:object="${weatherdata}" th:action="@{/weatherforecasts/}" method="post">
+                <div class="card card-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h5>Please enter below city name and country code, based on ISO 3166 standard</h5>
+                            <br>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4 offset-md-3 form-group">
+                            <label>City:</label>
+                            <input id="city" name="city" type="text" class="form-control"/>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4 offset-md-3 form-group">
+                            <label>Country code:</label>
+                            <input id="countryCode" name="countryCode" type="text" class="form-control"/>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4 offset-md-3">
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>

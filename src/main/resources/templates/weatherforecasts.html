@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Weather forecast</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous"
+          th:href="@{/webjars/bootstrap/4.1.3/css/bootstrap.min.css}">
+    <script src="/webjars/jquery/3.0.0/jquery.min.js"></script>
+
+</head>
+<body>
+<!--/*@thymesVar id="weatherforecasts" type="java.util.List"*/-->
+<!--/*@thymesVar id="weatherforecast" type="com.example.api.v1.domain.WeatherForecast"*/-->
+<div class="container-fluid" style="margin-top: 20px">
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <div class="card bg-light">
+                <div class="card-header">
+                    <h1 class="card-title">Weather forecast</h1>
+                </div>
+                <div class="card card-body">
+                    <div class="table-responsive">
+                        <table class="table table-hover">
+                            <thead class="thead-light">
+                            <tr>
+                                <th>City Name</th>
+                                <th>Country code</th>
+                                <th>Average temperature</th>
+                                <th>Average pressure</th>
+                                <th>Average humidity</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr th:each="weatherforecast : ${weatherforecasts}">
+                                <td th:text="${weatherforecast.cityName}">City name</td>
+                                <td th:text="${weatherforecast.countryCode}">Country code</td>
+                                <td th:text="${weatherforecast.averageTemperature}">Temperature</td>
+                                <td th:text="${weatherforecast.averagePressure}">Pressure</td>
+                                <td th:text="${weatherforecast.averageHumidity}">Humidity</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
