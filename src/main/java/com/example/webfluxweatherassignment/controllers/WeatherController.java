@@ -5,9 +5,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.server.ServerWebExchange;
 
 @Controller
+@RequestMapping("/api/v1")
 public class WeatherController {
 
 
@@ -27,7 +29,7 @@ public class WeatherController {
 
         model.addAttribute("weatherforecasts", apiService.getWeatherForecast(city, countryCode));
 
-        return "weatherforecasts";
+        return "api/v1/weatherforecasts";
     }
 
 }
