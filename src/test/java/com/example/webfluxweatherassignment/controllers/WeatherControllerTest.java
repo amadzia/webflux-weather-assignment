@@ -34,7 +34,7 @@ public class WeatherControllerTest {
         formData.add("city", "London");
         formData.add("countryCode", "UK");
 
-        webTestClient.post().uri("weatherforecasts")
+        webTestClient.post().uri("api/v1/weatherforecasts")
                 .contentType(MediaType.APPLICATION_FORM_URLENCODED)
                 .body(BodyInserters.fromFormData(formData))
                 .exchange()
